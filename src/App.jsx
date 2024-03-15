@@ -1,10 +1,16 @@
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
+// import GpSmartPage from "./pages/Gp Smart Greeting Card/GpSmartPage";
+import XriSmartPage from "./pages/Xri Smart Greeting Card/XriSmartPage";
+import ErrorPage from "./pages/Error/ErrorPage";
 
 function App() {
   return (
-    <>
-      <h1 className="text-5xl font-bold underline">Hello world!</h1>
-    </>
+    <Routes>
+      <Route path="/" element={<XriSmartPage />} />
+      {/* <Route path="/xrismartpage" element={<XriSmartPage />} /> */}
+      <Route path="*" element={<ErrorPage />} />
+    </Routes>
   );
 }
 
