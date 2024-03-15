@@ -8,18 +8,15 @@ import ringbox from "../../assets/ringbox.png";
 import globe from "../../assets/globe.png";
 import cone from "../../assets/cone.png";
 import Animatebg from "../../components/Animatebg";
-
-const XriSmartPage = () => {
+const Greetings = () => {
   return (
-    <div className='min-h-screen w-full bg-[url("/gradient.png")] overflow-hidden'>
+    <div className='min-h-screen h-full w-full bg-[url("/gradient.png")] overflow-hidden'>
       <div className='bg-[url("/design.png")] w-full h-full '>
         {/* nav of ui  */}
         <header className="pb-6">
           <div className="mx-auto max-w-screen-xl px-4 ">
-            <div className="flex items-center justify-between">
-              <img src={xrlogo} className="md:w-1/4 w-20 md:pt-3" alt="" />
-
-              <div className="flex justify-end items-center">
+            <div className="flex items-center justify-center">
+              <div className="flex justify-center items-center">
                 <img
                   src={moon}
                   className=" md:w-1/3 w-1/3 sm:p-0 pt-2 "
@@ -27,17 +24,6 @@ const XriSmartPage = () => {
                 />
 
                 <div className="inline-flex flex-col justify-center items-center ">
-                  {/* <img
-                    src={eid}
-                    className="inline-block md:w-2/5 w-1/4"
-                    alt=""
-                  />
-                  <img
-                    src={mubarak}
-                    className="inline-block md:w-2/3 w-1/2"
-                    alt=""
-                  /> */}
-
                   <h1 className="md:text-6xl  sm:text-6xl text-3xl sm:leading-12 leading-7 text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] font-sansita italic">
                     EID
                   </h1>
@@ -51,20 +37,14 @@ const XriSmartPage = () => {
         </header>
         {/* nav of ui end  */}
         {/* content box start  */}
-        <div className="flex flex-wrap justify-center items-center md:px-20  gap-x-4 sm:gap-y-4 mt-7 relative">
-          <div className="w-[225px] h-[150px] bg-contain z-30 flex justify-center items-center bg-[url('/Board.png')] font-sansita font-bold italic text-3xl text-center px-2">
-            SOCIAL MEDIA AR FILTER
+        <div className="flex flex-col  justify-between  md:px-20  gap-x-4 sm:gap-y-4  relative h-full">
+          <div className="flex flex-col justify-center items-center gap-2 leading-10">
+            <p className=" text-5xl leading-[64px] text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] font-sansita italic">
+              Customize your EID greeting with
+            </p>
+            <img src={xrlogo} className="md:w-1/4 w-20 md:pt-3" alt="" />
           </div>
-          <div className="w-[225px] h-[150px] bg-contain z-30 flex justify-center items-center bg-[url('/Board.png')] font-sansita font-bold italic text-3xl text-center px-2">
-            SOCIAL MEDIA AR FILTER
-          </div>
-          <div className="w-[225px] h-[150px] bg-contain z-30 flex justify-center items-center bg-[url('/Board.png')] font-sansita font-bold italic text-3xl text-center px-2">
-            SOCIAL MEDIA AR FILTER
-          </div>
-          <div className="w-[225px] h-[150px] bg-contain z-30 flex justify-center items-center bg-[url('/Board.png')] font-sansita font-bold italic text-3xl text-center px-2">
-            SOCIAL MEDIA AR FILTER
-          </div>
-
+          <button>Hello</button>
           {/* <Animatebg src={globe} />   */}
           <img
             src={globe}
@@ -97,4 +77,4 @@ const XriSmartPage = () => {
   );
 };
 
-export default XriSmartPage;
+export default Greetings;
