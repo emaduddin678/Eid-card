@@ -10,8 +10,8 @@ import cone from "../../assets/cone.png";
 import Animatebg from "../../components/Animatebg";
 const Greetings = () => {
   return (
-    <div className='min-h-screen h-full w-full bg-[url("/gradient.png")] overflow-hidden'>
-      <div className='bg-[url("/design.png")] w-full h-full '>
+    <div className='min-h-screen h-full w-full bg-[url("/gradient.png")] overflow-hidden '>
+      <div className='bg-[url("/design.png")] bg-contain bg-repeat-y w-full min-h-screen h-full flex flex-col'>
         {/* nav of ui  */}
         <header className="pb-6">
           <div className="mx-auto max-w-screen-xl px-4 ">
@@ -37,14 +37,16 @@ const Greetings = () => {
         </header>
         {/* nav of ui end  */}
         {/* content box start  */}
-        <div className="flex flex-col  justify-between  md:px-20  gap-x-4 sm:gap-y-4  relative h-full">
+        <div className="flex flex-col flex-grow justify-between items-center  md:px-20  gap-x-4 sm:gap-y-4  relative h-full py-16">
           <div className="flex flex-col justify-center items-center gap-2 leading-10">
-            <p className=" text-5xl leading-[64px] text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] font-sansita italic">
+            <p className="px-2 text-5xl leading-[64px] text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FFEAB7] to-[#c08b06] font-sansita italic">
               Customize your EID greeting with
             </p>
             <img src={xrlogo} className="md:w-1/4 w-20 md:pt-3" alt="" />
           </div>
-          <button>Hello</button>
+          <button className="inline-block px-4 py-2 rounded-2xl font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] ">
+            Lat’s start sharing !
+          </button>
           {/* <Animatebg src={globe} />   */}
           <img
             src={globe}
