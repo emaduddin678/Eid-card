@@ -46,11 +46,11 @@ const GeneratingCard = () => {
               is generating your personalized greeting just for you{" "}
             </p>
           </div>
-          <div class="loader">
-            <div class="upper ball"></div>
-            <div class="right ball"></div>
-            <div class="lower ball"></div>
-            <div class="left ball"></div>
+          <div className="loader">
+            <div className="upper ball"></div>
+            <div className="right ball"></div>
+            <div className="lower ball"></div>
+            <div className="left ball"></div>
           </div>
           {/* <Animatebg src={globe} />   */}
           <img
