@@ -52,17 +52,17 @@ const XriSmartPage = () => {
         {/* nav of ui end  */}
         {/* content box start  */}
         <div className="flex flex-wrap justify-center items-center md:px-20  gap-x-4 sm:gap-y-4 mt-7 relative">
-          <div className="w-[225px] h-[150px] bg-contain z-30 flex justify-center items-center bg-[url('/Board.png')] font-sansita font-bold italic text-3xl text-center px-2">
+          <div className="w-[240px] h-[160px] bg-contain z-30 flex justify-center items-center bg-[url('/Board.png')] font-sansita font-bold italic text-3xl text-center px-3">
             SOCIAL MEDIA AR FILTER
           </div>
-          <div className="w-[225px] h-[150px] bg-contain z-30 flex justify-center items-center bg-[url('/Board.png')] font-sansita font-bold italic text-3xl text-center px-2">
-            SOCIAL MEDIA AR FILTER
+          <div className="w-[240px] h-[160px] bg-contain z-30 flex justify-center items-center bg-[url('/Board.png')] font-sansita font-bold italic text-3xl text-center px-2">
+            PERSONALIZED GREETINGS
           </div>
-          <div className="w-[225px] h-[150px] bg-contain z-30 flex justify-center items-center bg-[url('/Board.png')] font-sansita font-bold italic text-3xl text-center px-2">
-            SOCIAL MEDIA AR FILTER
+          <div className="w-[240px] h-[160px] bg-contain z-30 flex justify-center items-center bg-[url('/Board.png')] font-sansita font-bold italic text-3xl text-center px-2">
+            GAME WITH CLOUD SAVING
           </div>
-          <div className="w-[225px] h-[150px] bg-contain z-30 flex justify-center items-center bg-[url('/Board.png')] font-sansita font-bold italic text-3xl text-center px-2">
-            SOCIAL MEDIA AR FILTER
+          <div className="w-[240px] h-[160px] bg-contain z-30 flex justify-center items-center bg-[url('/Board.png')] font-sansita font-bold italic text-3xl text-center px-4">
+            AR OPEN WORLD
           </div>
 
           {/* <Animatebg src={globe} />   */}

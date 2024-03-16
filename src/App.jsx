@@ -10,6 +10,8 @@ import EnjoyMsg from "./pages/EnjoyMsg/EnjoyMsg";
 import LikeMsg from "./pages/LikeMsg/LikeMsg";
 import ToneGreeting from "./pages/ToneGreeting/ToneGreeting";
 import GeneratingCard from "./pages/GeneratingCard/GeneratingCard";
+import EidCard from "./pages/EidCard/EidCard";
+import DownloadEidCard from "./pages/DownloadEidCard/DownloadEidCard";
 
 function App() {
   return (
@@ -22,6 +24,8 @@ function App() {
       <Route path="/likemsg" element={<LikeMsg />} />
       <Route path="/tone" element={<ToneGreeting />} />
       <Route path="/generatecard" element={<GeneratingCard />} />
+      <Route path="/eidcard" element={<EidCard />} />
+      <Route path="/downloadeidcard" element={<DownloadEidCard />} />
       <Route path="*" element={<ErrorPage />} />
     </Routes>
   );
