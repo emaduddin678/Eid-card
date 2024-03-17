@@ -8,6 +8,7 @@ import ringbox from "../../assets/ringbox.png";
 import globe from "../../assets/globe.png";
 import cone from "../../assets/cone.png";
 import Animatebg from "../../components/Animatebg";
+import { Link } from "react-router-dom";
 const Greetings = () => {
   return (
     <div className='min-h-screen h-full w-full bg-[url("/gradient.png")] overflow-hidden '>
@@ -44,9 +45,12 @@ const Greetings = () => {
             </p>
             <img src={xrlogo} className="md:w-1/4 w-20 md:pt-3" alt="" />
           </div>
-          <button className="inline-block px-4 py-2 rounded-2xl font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] ">
+          <Link
+            to={"/greetingform"}
+            className="inline-block px-4 py-2 rounded-2xl font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] "
+          >
             Lat’s start sharing !
-          </button>
+          </Link>
           {/* <Animatebg src={globe} />   */}
           <img
             src={globe}

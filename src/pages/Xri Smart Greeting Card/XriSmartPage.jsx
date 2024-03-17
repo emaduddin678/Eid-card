@@ -8,6 +8,7 @@ import ringbox from "../../assets/ringbox.png";
 import globe from "../../assets/globe.png";
 import cone from "../../assets/cone.png";
 import Animatebg from "../../components/Animatebg";
+import { Link } from "react-router-dom";
 
 const XriSmartPage = () => {
   return (
@@ -27,17 +28,6 @@ const XriSmartPage = () => {
                 />
 
                 <div className="inline-flex flex-col justify-center items-center ">
-                  {/* <img
-                    src={eid}
-                    className="inline-block md:w-2/5 w-1/4"
-                    alt=""
-                  />
-                  <img
-                    src={mubarak}
-                    className="inline-block md:w-2/3 w-1/2"
-                    alt=""
-                  /> */}
-
                   <h1 className="md:text-6xl  sm:text-6xl text-3xl sm:leading-12 leading-7 text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] font-sansita italic">
                     EID
                   </h1>
@@ -55,8 +45,13 @@ const XriSmartPage = () => {
           <div className="w-[240px] h-[160px] bg-contain z-30 flex justify-center items-center bg-[url('/Board.png')] font-sansita font-bold italic text-3xl text-center px-3">
             SOCIAL MEDIA AR FILTER
           </div>
-          <div className="w-[240px] h-[160px] bg-contain z-30 flex justify-center items-center bg-[url('/Board.png')] font-sansita font-bold italic text-3xl text-center px-2">
-            PERSONALIZED GREETINGS
+          <div className="w-[240px] h-[160px] bg-contain z-30 flex justify-center items-center bg-[url('/Board.png')] text-center px-2">
+            <Link
+              className="w-full h-full flex items-center font-sansita font-bold italic text-3xl"
+              to={"/greetings"}
+            >
+              PERSONALIZED GREETINGS
+            </Link>
           </div>
           <div className="w-[240px] h-[160px] bg-contain z-30 flex justify-center items-center bg-[url('/Board.png')] font-sansita font-bold italic text-3xl text-center px-2">
             GAME WITH CLOUD SAVING

@@ -8,8 +8,11 @@ import ringbox from "../../assets/ringbox.png";
 import globe from "../../assets/globe.png";
 import cone from "../../assets/cone.png";
 import Animatebg from "../../components/Animatebg";
+import { Link } from "react-router-dom";
 
 const ToneGreeting = () => {
+ 
+
   return (
     <div className='min-h-screen h-full w-full bg-[url("/gradient.png")] overflow-hidden '>
       <div className='bg-[url("/design.png")] bg-contain bg-repeat-y w-full min-h-screen h-full flex flex-col'>
@@ -62,10 +65,12 @@ const ToneGreeting = () => {
                 </button>
               </div>
               <div className="flex z-50 w-full px-5">
-                
-                <button className="text-center w-full mx-auto block px-7 py-1 rounded-lg font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] mt-7">
+                <Link
+                  to={"/generatecard"}
+                  className="text-center w-full mx-auto block px-7 py-1 rounded-lg font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] mt-7"
+                >
                   Generate
-                </button>
+                </Link>
               </div>
             </form>
           </div>

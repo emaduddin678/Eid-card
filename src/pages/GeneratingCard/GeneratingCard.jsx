@@ -9,8 +9,18 @@ import globe from "../../assets/globe.png";
 import cone from "../../assets/cone.png";
 import Animatebg from "../../components/Animatebg";
 import "./Generating.css"
+import { useNavigate } from "react-router-dom";
 
 const GeneratingCard = () => {
+   const navigate = useNavigate();
+
+   useEffect(() => {
+     console.log("Helo");
+     const timeoutId = setTimeout(() => {
+       navigate("/eidcard");
+     }, 2000);
+     return () => clearTimeout(timeoutId);
+   }, []);
   return (
     <div className='min-h-screen h-full w-full bg-[url("/gradient.png")] overflow-hidden '>
       <div className='bg-[url("/design.png")] bg-contain bg-repeat-y w-full min-h-screen h-full flex flex-col'>

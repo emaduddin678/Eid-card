@@ -8,6 +8,7 @@ import ringbox from "../../assets/ringbox.png";
 import globe from "../../assets/globe.png";
 import cone from "../../assets/cone.png";
 import Animatebg from "../../components/Animatebg";
+import { Link } from "react-router-dom";
 const GreetingForm = () => {
   return (
     <div className='min-h-screen h-full w-full bg-[url("/gradient.png")] overflow-hidden '>
@@ -42,33 +43,36 @@ const GreetingForm = () => {
             <p className="px-2 text-4xl leading-[64px] text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FFEAB7] to-[#c08b06] font-sansita italic">
               Fill your details
             </p>
-            <form className="max-w-sm mx-auto">
-              <div className="flex flex-col gap-3">
+            <form className="max-w-sm mx-auto flex flex-col">
+              <div className="flex flex-col gap-3 ">
                 <input
                   type="text"
                   id="success"
-                  className="bg-[#61006E]  text-white  placeholder-white  text-sm rounded-lg placeholder:text-center block w-full p-2.5 "
+                  className="bg-[#61006E] text-center text-white  placeholder-white  text-sm rounded-lg placeholder:text-center block w-full p-2.5 "
                   placeholder="Your name"
                 />
                 <input
                   type="email"
                   id="error"
-                  className="bg-[#61006E]  text-white placeholder-white text-sm rounded-lg  placeholder:text-center block w-full p-2.5 "
+                  className="bg-[#61006E] text-center text-white placeholder-white text-sm rounded-lg  placeholder:text-center block w-full p-2.5 "
                   placeholder="Your email ID"
                 />
 
                 <input
                   type="text"
                   id="phone-input"
-                  className="bg-[#61006E]  text-white text-sm rounded-lg placeholder:text-white placeholder:text-center block w-full  p-2.5  "
+                  className="bg-[#61006E] text-center text-white text-sm rounded-lg placeholder:text-white placeholder:text-center block w-full  p-2.5  "
                   pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                   placeholder="Your mobile no."
                   required
                 />
               </div>
-              <button className="text-center mx-auto block px-7 py-1 rounded-xl font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] mt-7">
+              <Link
+                to={"/recipentform"}
+                className="text-center inline-block mx-auto  px-7 py-1 rounded-xl font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] mt-7"
+              >
                 Next
-              </button>
+              </Link>
             </form>
           </div>
           <img src={xrlogo} className="md:w-1/4 w-20 md:pt-3" alt="" />

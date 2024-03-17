@@ -8,6 +8,7 @@ import ringbox from "../../assets/ringbox.png";
 import globe from "../../assets/globe.png";
 import cone from "../../assets/cone.png";
 import Animatebg from "../../components/Animatebg";
+import { Link } from "react-router-dom";
 
 const LikeMsg = () => {
   return (
@@ -51,12 +52,18 @@ const LikeMsg = () => {
                 placeholder="Punctuality, kindness, helpful, etc..."
               ></textarea>
               <div className="flex z-50">
-                <button className="text-center mx-auto block px-7 py-1 rounded-xl font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] mt-7">
+                <Link
+                  to={"/enjoymsg"}
+                  className="text-center mx-auto block px-7 py-1 rounded-xl font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] mt-7"
+                >
                   Back
-                </button>
-                <button className="text-center mx-auto block px-7 py-1 rounded-xl font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] mt-7">
+                </Link>
+                <Link
+                  to={"/tone"}
+                  className="text-center mx-auto block px-7 py-1 rounded-xl font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] mt-7"
+                >
                   Next
-                </button>
+                </Link>
               </div>
             </form>
           </div>

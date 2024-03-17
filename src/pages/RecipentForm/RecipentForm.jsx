@@ -8,6 +8,7 @@ import ringbox from "../../assets/ringbox.png";
 import globe from "../../assets/globe.png";
 import cone from "../../assets/cone.png";
 import Animatebg from "../../components/Animatebg";
+import { Link } from "react-router-dom";
 
 const RecipentForm = () => {
   return (
@@ -56,10 +57,10 @@ const RecipentForm = () => {
             <p className="px-2 text-4xl  text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FFEAB7] to-[#c08b06] font-sansita italic">
               Your relationship with the recipient
             </p>
-            <form className="max-w-sm mx-auto">
+            <form className="max-w-sm mx-auto flex items-center justify-center flex-col">
               <select
                 id="countries"
-                className="appearance-none	bg-[#61006E]  text-white text-sm rounded-lg block w-full p-2.5 "
+                className="appearance-none	bg-[#61006E]  text-white text-sm rounded-lg block w-full p-2.5 px-7 "
               >
                 <option defaultValue={""}>-Recipient Relationship- </option>
                 <option value="father">Father</option>
@@ -67,9 +68,12 @@ const RecipentForm = () => {
                 <option value="brother">Brother</option>
                 <option value="sister">Sister</option>
               </select>
-              <button className="text-center mx-auto block px-7 py-1 rounded-xl font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] mt-7">
+              <Link
+                to={"/enjoymsg"}
+                className="text-center mx-auto inline-block px-7 py-1 rounded-xl font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] mt-7"
+              >
                 Next
-              </button>
+              </Link>
             </form>
           </div>
           <img src={xrlogo} className="md:w-1/4 w-20 md:pt-3" alt="" />
