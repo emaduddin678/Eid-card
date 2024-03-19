@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import xrlogo from "/xrLogo.png";
 import moon from "/gpmoon.png";
 // import eid from "/EID.png";
@@ -8,9 +8,22 @@ import ringbox from "../../assets/ringbox.png";
 import globe from "../../assets/globe.png";
 import cone from "../../assets/cone.png";
 import Animatebg from "../../components/Animatebg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const EnjoyMsg = () => {
+  const navigate = useNavigate();
+  const info = useLocation();
+  const [state, setState] = useState(info.state);
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
+  };
+  console.log(state);
+
   return (
     <div className='min-h-screen h-full w-full bg-[url("/gradient.png")] overflow-hidden '>
       <div className='bg-[url("/design.png")] bg-contain bg-repeat-y w-full min-h-screen h-full flex flex-col'>
@@ -41,7 +54,7 @@ const EnjoyMsg = () => {
         {/* content box start  */}
         <div className="flex flex-col flex-grow justify-between items-center  md:px-20  gap-x-4 sm:gap-y-4  relative h-full py-16 px-2">
           <div className="flex flex-col justify-center items-center gap-2 leading-10 z-50">
-            <p className="px-2 text-4xl  text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FFEAB7] to-[#c08b06] font-sansita italic">
+            <p className="px-2 text-4xl leading-[52px] text-center font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-[#FFEAB7] to-[#c08b06] font-sansita italic">
               What do you enjoy doing together ?
             </p>
             <form className="w-4/5">
@@ -50,19 +63,24 @@ const EnjoyMsg = () => {
                 rows="8"
                 className="block p-2.5 w-full text-sm text-white bg-[#61006E] rounded-lg"
                 placeholder="Praying together, Play together, Study, Dinner etc..."
+                name="enjoy_togather"
+                onChange={handleChange}
+                value={state.enjoy_togather}
               ></textarea>
               <div className="flex z-50">
                 <Link
-                  to={"/recipentform"}
+                  // to={"/recipentform"}
+                  onClick={() => navigate(-1)}
                   className="text-center mx-auto block px-7 py-1 rounded-xl font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] mt-7"
                 >
-                    Back
-               </Link>
+                  Back
+                </Link>
                 <Link
                   to={"/likemsg"}
+                  state={state}
                   className="text-center mx-auto block px-7 py-1 rounded-xl font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] mt-7"
                 >
-                    Next
+                  Next
                 </Link>
               </div>
             </form>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import xrlogo from "/xrLogo.png";
 import moon from "/gpmoon.png";
 // import eid from "/EID.png";
@@ -8,9 +8,21 @@ import ringbox from "../../assets/ringbox.png";
 import globe from "../../assets/globe.png";
 import cone from "../../assets/cone.png";
 import Animatebg from "../../components/Animatebg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const LikeMsg = () => {
+  const navigate = useNavigate();
+  const info = useLocation();
+  const [state, setState] = useState(info.state);
+  const handleChange = (e) => {
+    e.preventDefault();
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+  console.log(state);
   return (
     <div className='min-h-screen h-full w-full bg-[url("/gradient.png")] overflow-hidden '>
       <div className='bg-[url("/design.png")] bg-contain bg-repeat-y w-full min-h-screen h-full flex flex-col'>
@@ -50,16 +62,20 @@ const LikeMsg = () => {
                 rows="8"
                 className="block p-2.5 w-full text-sm text-white bg-[#61006E] rounded-lg"
                 placeholder="Punctuality, kindness, helpful, etc..."
+                name="like_most"
+                onChange={handleChange}
+                value={state.like_most}
               ></textarea>
               <div className="flex z-50">
                 <Link
-                  to={"/enjoymsg"}
+                  onClick={() => navigate(-1)}
                   className="text-center mx-auto block px-7 py-1 rounded-xl font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] mt-7"
                 >
                   Back
                 </Link>
                 <Link
                   to={"/tone"}
+                  state={state}
                   className="text-center mx-auto block px-7 py-1 rounded-xl font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] mt-7"
                 >
                   Next

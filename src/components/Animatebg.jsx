@@ -7,16 +7,16 @@ const Animatebg = ({ src }) => {
     const animateDiv = () => {
       const newCoordinates = makeNewPosition();
       const div = divRef.current;
-      console.log(div)
+      // console.log(div);
       if (div) {
-        div.style.transitionDuration = "5s";
-        div.style.right = newCoordinates[0] + "px";
-        div.style.bottom = newCoordinates[1] + "px";
-        
+        div.style.transitionDuration = "8s";
+        div.style.left = newCoordinates[0] + "px";
+        div.style.top = newCoordinates[1] + "px";
       }
     };
+    console.log(src)
 
-    const intervalId = setInterval(animateDiv, 5000); // Call animateDiv every 2 seconds
+    const intervalId = setInterval(animateDiv, 8000); // Call animateDiv every 2 seconds
 
     return () => clearInterval(intervalId);
   }, []);
@@ -34,6 +34,7 @@ const Animatebg = ({ src }) => {
       ref={divRef}
       className="a sm:w-36 w-20 absolute sm:left-16a sm:-top-12a left-0a top-28a opacity-30"
       alt="globe"
+      style={{ left: "70px", top: "50px" }}
     />
   );
 };

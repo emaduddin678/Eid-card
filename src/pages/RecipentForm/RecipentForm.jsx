@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import xrlogo from "/xrLogo.png";
 import moon from "/gpmoon.png";
 // import eid from "/EID.png";
@@ -8,9 +8,21 @@ import ringbox from "../../assets/ringbox.png";
 import globe from "../../assets/globe.png";
 import cone from "../../assets/cone.png";
 import Animatebg from "../../components/Animatebg";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 
 const RecipentForm = () => {
+  const info = useLocation();
+  const [state, setState] = useState(info.state);
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setState({
+      ...state,
+      [e.target.name]: e.target.value,
+    });
+  };
+  console.log(state);
+
   return (
     <div className='min-h-screen h-full w-full bg-[url("/gradient.png")] overflow-hidden '>
       <div className='bg-[url("/design.png")] bg-contain bg-repeat-y w-full min-h-screen h-full flex flex-col'>
@@ -48,8 +60,11 @@ const RecipentForm = () => {
               <input
                 type="text"
                 id="success"
-                className="bg-[#61006E]  text-white  placeholder-white  text-sm rounded-lg placeholder:text-center block w-full p-2.5 "
+                className="bg-[#61006E]  text-white text-center placeholder-white  text-sm rounded-lg placeholder:text-center block w-full p-2.5 "
                 placeholder="Recipient’s name"
+                name="recipient_name"
+                value={state.recipient_name}
+                onChange={handleChange}
               />
             </div>
           </div>
@@ -60,15 +75,28 @@ const RecipentForm = () => {
             <form className="max-w-sm mx-auto flex items-center justify-center flex-col">
               <select
                 id="countries"
-                className="appearance-none	bg-[#61006E]  text-white text-sm rounded-lg block w-full p-2.5 px-7 "
+                className="appearance-none text-center	bg-[#61006E]  text-white text-sm rounded-lg block w-full p-2.5 px-7 "
+                name="recipient_relation"
+                value={state.recipient_relation}
+                onChange={handleChange}
               >
-                <option defaultValue={""}>-Recipient Relationship- </option>
-                <option value="father">Father</option>
-                <option value="mother">Mother</option>
-                <option value="brother">Brother</option>
-                <option value="sister">Sister</option>
+                <option defaultValue={""}>-Recipient Relationship-</option>
+                <option value="father" className="text-center">
+                  Father
+                </option>
+                <option value="mother" className="text-center">
+                  Mother
+                </option>
+                <option value="brother" className="text-center">
+                  Brother
+                </option>
+                <option value="sister" className="text-center">
+                  Sister
+                </option>
               </select>
               <Link
+                type="submit"
+                state={state}
                 to={"/enjoymsg"}
                 className="text-center mx-auto inline-block px-7 py-1 rounded-xl font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] mt-7"
               >

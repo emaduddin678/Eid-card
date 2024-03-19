@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import xrlogo from "/xrLogo.png";
 import moon from "/gpmoon.png";
 // import eid from "/EID.png";
@@ -8,10 +8,25 @@ import ringbox from "../../assets/ringbox.png";
 import globe from "../../assets/globe.png";
 import cone from "../../assets/cone.png";
 import Animatebg from "../../components/Animatebg";
-import { Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 
 const ToneGreeting = () => {
- 
+
+
+  const navigate = useNavigate();
+  const info = useLocation();
+  const [state, setState] = useState(info.state);
+  const handleChange = (e) => {
+    e.preventDefault();
+
+
+    setState({
+      ...state,
+      tone_of_the_greetings: e.target.value,
+    });
+  };
+
+  console.log(state);
 
   return (
     <div className='min-h-screen h-full w-full bg-[url("/gradient.png")] overflow-hidden '>
@@ -48,25 +63,48 @@ const ToneGreeting = () => {
             </p>
             <form className="w-4/5">
               <div className="flex flex-col justify-center items-center gap-y-2 px-5">
-                <button className="w-full text-center mx-auto block px-7 py-1 rounded-lg font-sansita text-base font-bold bg-[#61006E] text-white">
+                <button
+                 
+                  value={"romantic"}
+                  onClick={handleChange}
+                  className="w-full text-center mx-auto block px-7 py-1 rounded-lg font-sansita text-base font-bold bg-[#61006E] text-white"
+                >
                   Romantic
                 </button>
-                <button className="w-full  text-center mx-auto block px-7 py-1 rounded-lg font-sansita text-base font-bold bg-[#61006E] text-white">
+                <button
+                 
+                  value={"formal"}
+                  onClick={handleChange}
+                  className="w-full  text-center mx-auto block px-7 py-1 rounded-lg font-sansita text-base font-bold bg-[#61006E] text-white"
+                >
                   Formal
                 </button>
-                <button className="w-full  text-center mx-auto block px-7 py-1 rounded-lg font-sansita text-base font-bold bg-[#61006E] text-white">
+                <button
+                  value={"funny"}
+                  onClick={handleChange}
+                  className="w-full  text-center mx-auto block px-7 py-1 rounded-lg font-sansita text-base font-bold bg-[#61006E] text-white"
+                >
                   Funny
                 </button>
-                <button className="w-full  text-center mx-auto block px-7 py-1 rounded-lg font-sansita text-base font-bold bg-[#61006E] text-white">
+                <button
+                  value={"grateful"}
+                  onClick={handleChange}
+                  className="w-full  text-center mx-auto block px-7 py-1 rounded-lg font-sansita text-base font-bold bg-[#61006E] text-white"
+                >
                   Grateful
                 </button>
-                <button className="w-full  text-center mx-auto block px-7 py-1 rounded-lg font-sansita text-base font-bold bg-[#61006E] text-white">
+                <button
+                  value={"friendly"}
+                  onClick={handleChange}
+                  className="w-full  text-center mx-auto block px-7 py-1 rounded-lg font-sansita text-base font-bold bg-[#61006E] text-white"
+                >
                   Friendly
                 </button>
               </div>
               <div className="flex z-50 w-full px-5">
                 <Link
                   to={"/generatecard"}
+                  state={state}
                   className="text-center w-full mx-auto block px-7 py-1 rounded-lg font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] mt-7"
                 >
                   Generate

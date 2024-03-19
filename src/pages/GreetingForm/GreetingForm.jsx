@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import xrlogo from "/xrLogo.png";
 import moon from "/gpmoon.png";
 // import eid from "/EID.png";
@@ -8,8 +8,28 @@ import ringbox from "../../assets/ringbox.png";
 import globe from "../../assets/globe.png";
 import cone from "../../assets/cone.png";
 import Animatebg from "../../components/Animatebg";
-import { Link } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 const GreetingForm = () => {
+  const [info, setInfo] = useState({
+    name: "",
+    email: "",
+    number: "",
+    recipient_name: "",
+    enjoy_togather: "",
+    like_most: "",
+    tone_of_the_greetings: "",
+    recipient_relation: "",
+  });
+
+  const handleChange = (e) => {
+    e.preventDefault();
+    setInfo({
+      ...info,
+      [e.target.name]: e.target.value,
+    });
+  };
+
+
   return (
     <div className='min-h-screen h-full w-full bg-[url("/gradient.png")] overflow-hidden '>
       <div className='bg-[url("/design.png")] bg-contain bg-repeat-y w-full min-h-screen h-full flex flex-col'>
@@ -50,25 +70,34 @@ const GreetingForm = () => {
                   id="success"
                   className="bg-[#61006E] text-center text-white  placeholder-white  text-sm rounded-lg placeholder:text-center block w-full p-2.5 "
                   placeholder="Your name"
+                  value={info.name}
+                  name="name"
+                  onChange={handleChange}
                 />
                 <input
-                  type="email"
+                  type="emaila"
                   id="error"
                   className="bg-[#61006E] text-center text-white placeholder-white text-sm rounded-lg  placeholder:text-center block w-full p-2.5 "
                   placeholder="Your email ID"
+                  value={info.email}
+                  name="email"
+                  onChange={handleChange}
                 />
 
                 <input
                   type="text"
                   id="phone-input"
                   className="bg-[#61006E] text-center text-white text-sm rounded-lg placeholder:text-white placeholder:text-center block w-full  p-2.5  "
-                  pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                   placeholder="Your mobile no."
-                  required
+                  value={info.number}
+                  name="number"
+                  onChange={handleChange}
                 />
               </div>
+
               <Link
                 to={"/recipentform"}
+                state={info}
                 className="text-center inline-block mx-auto  px-7 py-1 rounded-xl font-sansita text-base font-bold text-[#450745] bg-gradient-to-br from-[#FFEAB7] to-[#9D740E] mt-7"
               >
                 Next

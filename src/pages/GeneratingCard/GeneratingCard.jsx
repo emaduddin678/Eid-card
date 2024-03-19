@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import xrlogo from "/xrLogo.png";
 import moon from "/gpmoon.png";
 // import eid from "/EID.png";
@@ -8,19 +8,39 @@ import ringbox from "../../assets/ringbox.png";
 import globe from "../../assets/globe.png";
 import cone from "../../assets/cone.png";
 import Animatebg from "../../components/Animatebg";
-import "./Generating.css"
-import { useNavigate } from "react-router-dom";
+import "./Generating.css";
+import { useLocation, useNavigate } from "react-router-dom";
+import axios from "axios";
 
 const GeneratingCard = () => {
-   const navigate = useNavigate();
+  const info = useLocation();
+  const [state, setState] = useState(info.state);
+  console.log(state);
+  const navigate = useNavigate();
 
-   useEffect(() => {
-     console.log("Helo");
-     const timeoutId = setTimeout(() => {
-       navigate("/eidcard");
-     }, 2000);
-     return () => clearTimeout(timeoutId);
-   }, []);
+  useEffect(() => {
+    console.log("Helo");
+    axios
+      .post(
+        "https://backend-smart-eid-card.xri.com.bd/api/store-customer-info",
+        { ...state },
+        {
+          headers: {
+            "Content-Type": "multipart/form-data",
+          },
+        }
+      )
+      .then((response) => {
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+    const timeoutId = setTimeout(() => {
+      navigate("/eidcard");
+    }, 3000);
+    return () => clearTimeout(timeoutId);
+  }, []);
   return (
     <div className='min-h-screen h-full w-full bg-[url("/gradient.png")] overflow-hidden '>
       <div className='bg-[url("/design.png")] bg-contain bg-repeat-y w-full min-h-screen h-full flex flex-col'>
